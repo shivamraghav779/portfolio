@@ -1881,7 +1881,7 @@
             const counters = document.querySelectorAll('.stat-number');
             
             counters.forEach(counter => {
-                const target = parseInt(counter.getAttribute('data-target'));
+                const target = parseFloat(counter.getAttribute('data-target'));
                 const increment = target / 50;
                 let current = 0;
                 
