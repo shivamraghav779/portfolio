@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Shivam Raghav | Agentic AI Engineer</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-primary": "#b4c5ff",
+              "tertiary-fixed-dim": "#ffb596",
+              "surface": "#f7f9fb",
+              "on-tertiary-fixed": "#360f00",
+              "secondary-fixed-dim": "#b4c5ff",
+              "on-primary-fixed-variant": "#003ea8",
+              "secondary-container": "#acbfff",
+              "on-error": "#ffffff",
+              "surface-container-highest": "#e0e3e5",
+              "outline-variant": "#c3c6d7",
+              "primary-container": "#2563eb",
+              "error": "#ba1a1a",
+              "on-primary": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "surface-container-low": "#f2f4f6",
+              "secondary": "#495c95",
+              "on-secondary-container": "#394c84",
+              "error-container": "#ffdad6",
+              "on-tertiary-fixed-variant": "#7d2d00",
+              "background": "#f7f9fb",
+              "outline": "#737686",
+              "on-secondary-fixed": "#00174b",
+              "on-secondary-fixed-variant": "#31447b",
+              "on-error-container": "#93000a",
+              "inverse-on-surface": "#eff1f3",
+              "on-primary-fixed": "#00174b",
+              "on-surface-variant": "#434655",
+              "on-background": "#191c1e",
+              "surface-container": "#eceef0",
+              "primary-fixed": "#dbe1ff",
+              "tertiary-fixed": "#ffdbcd",
+              "on-tertiary-container": "#ffede6",
+              "surface-tint": "#0053db",
+              "tertiary": "#943700",
+              "surface-variant": "#e0e3e5",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-high": "#e6e8ea",
+              "inverse-surface": "#2d3133",
+              "tertiary-container": "#bc4800",
+              "primary-fixed-dim": "#b4c5ff",
+              "surface-dim": "#d8dadc",
+              "secondary-fixed": "#dbe1ff",
+              "on-surface": "#191c1e",
+              "primary": "#004ac6",
+              "on-primary-container": "#eeefff",
+              "surface-bright": "#f7f9fb",
+              "on-secondary": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .blueprint-gradient {
+        background: linear-gradient(135deg, #004ac6 0%, #2563eb 100%);
+      }
+      .tonal-shift {
+        transition: background-color 0.2s cubic-bezier(0.2, 0, 0, 1);
+      }
+
+      html { scroll-behavior: smooth; }
+      #contact { scroll-margin-top: 96px; }
+
+      /* HERO bot animation */
+      @keyframes botFloat {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-6px); }
+      }
+      @keyframes scanSweep {
+        0% { transform: translateY(-120%); opacity: 0; }
+        20% { opacity: 0.55; }
+        100% { transform: translateY(120%); opacity: 0; }
+      }
+      @keyframes netFloat {
+        0%, 100% { transform: translate3d(0px, 0px, 0); }
+        50% { transform: translate3d(0px, 8px, 0); }
+      }
+      @keyframes dotPulse {
+        0%, 100% { transform: scale(1); opacity: 0.65; }
+        50% { transform: scale(1.25); opacity: 1; }
+      }
+      @keyframes progressSweep {
+        0% { transform: translateX(-40%); opacity: 0; }
+        25% { opacity: 1; }
+        100% { transform: translateX(40%); opacity: 0; }
+      }
+
+      .bot-avatar {
+        width: 44px;
+        height: 44px;
+        border-radius: 16px;
+        background: rgba(37, 99, 235, 0.10);
+        border: 1px solid rgba(37, 99, 235, 0.22);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: botFloat 4.2s ease-in-out infinite;
+      }
+      .bot-status {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 10px;
+        border-radius: 9999px;
+        background: rgba(255, 255, 255, 0.55);
+        border: 1px solid rgba(19, 78, 194, 0.18);
+      }
+      .bot-status-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 9999px;
+        background: #22c55e;
+        box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.12);
+        animation: dotPulse 1.6s ease-in-out infinite;
+      }
+
+      /* Chat */
+      .bot-chat {
+        background: rgba(255, 255, 255, 0.72);
+        border-color: rgba(195, 198, 215, 0.25);
+      }
+      .chat-bubble {
+        padding: 10px 12px;
+        border-radius: 14px;
+        border: 1px solid rgba(195, 198, 215, 0.25);
+      }
+      .chat-bubble--bot {
+        background: rgba(37, 99, 235, 0.06);
+      }
+      .chat-bubble--user {
+        background: rgba(241, 245, 249, 0.85);
+      }
+      .typing-dots {
+        display: inline-flex;
+        gap: 2px;
+        margin-left: 6px;
+        vertical-align: middle;
+      }
+      .typing-dots span {
+        width: 6px;
+        height: 10px;
+        display: inline-block;
+        background: currentColor;
+        border-radius: 999px;
+        animation: dotPulse 1.05s ease-in-out infinite;
+      }
+      .typing-dots span:nth-child(2) { animation-delay: 0.12s; }
+      .typing-dots span:nth-child(3) { animation-delay: 0.24s; }
+
+      /* Project visuals */
+      @keyframes scanLineMove {
+        0% { transform: translateY(-120%); opacity: 0; }
+        15% { opacity: 0.55; }
+        100% { transform: translateY(120%); opacity: 0; }
+      }
+      .project-scanline {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: linear-gradient(
+          to bottom,
+          transparent 0%,
+          rgba(255, 255, 255, 0.40) 45%,
+          rgba(255, 255, 255, 0.08) 55%,
+          transparent 100%
+        );
+        transform: translateY(-120%);
+        animation: scanLineMove 2.4s linear infinite;
+      }
+      .project-network {
+        color: var(--net-color, #2563eb);
+      }
+      .project-network .net-group {
+        animation: netFloat 4.4s ease-in-out infinite;
+      }
+      .project-network .net-dot {
+        animation: dotPulse 2s ease-in-out infinite;
+      }
+
+      /* Background dots */
+      .bot-bg-dots {
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(rgba(37, 99, 235, 0.35) 1px, transparent 1px);
+        background-size: 22px 22px;
+        opacity: 0.12;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .bot-avatar, .bot-status-dot, .project-network .net-group, .project-network .net-dot, .project-scanline {
+          animation: none !important;
+        }
+      }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-[0_12px_32px_-8px_rgba(25,28,30,0.04)]">
+<div class="flex justify-between items-center h-16 px-8 max-w-7xl mx-auto">
+<div class="text-xl font-bold tracking-tighter text-slate-900 dark:text-slate-50 font-headline">
+                Shivam Raghav
+            </div>
+<div class="hidden md:flex items-center gap-8 font-headline font-semibold tracking-tight">
+<a class="text-blue-700 dark:text-blue-400 border-b-2 border-blue-700 dark:border-blue-400 pb-1" href="index.html">Home</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors" href="projects.html">Projects</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors" href="experience.html">Experience</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors" href="skills.html">Skills</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors" href="#contact">Contact</a>
+</div>
+<a class="blueprint-gradient text-white px-6 py-2 rounded-lg font-bold text-sm hover:opacity-90 active:scale-95 transition-all" href="Shivam_Raghav_AI%20(1).pdf" download>
+                Download CV
+            </a>
+</div>
+</nav>
+<main class="max-w-[1100px] mx-auto px-6 lg:px-0">
+<!-- Hero Section -->
+<section class="pt-32 pb-20 md:pt-48 md:pb-32 flex flex-col md:flex-row items-center gap-12">
+<div class="flex-1 space-y-8">
+<div class="space-y-4">
+<span class="text-blue-700 font-label font-bold text-xs uppercase tracking-[0.15em]">Agentic AI Engineer | LLM Systems | Generative AI</span>
+<h1 class="font-headline text-5xl md:text-6xl font-extrabold tracking-tight text-on-surface leading-[1.1]">
+                        Shivam Raghav
+                    </h1>
+<p class="text-on-surface-variant text-lg md:text-xl max-w-xl leading-relaxed">
+                        I design and deploy production-grade AI systems using LLMs, RAG, and multi-agent architectures.
+                    </p>
+</div>
+<div class="flex flex-wrap gap-4 font-label text-sm font-semibold">
+<div class="flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant/10">
+<span class="material-symbols-outlined text-blue-700 text-base" data-icon="check_circle">check_circle</span>
+                        3+ Years Experience
+                    </div>
+<div class="flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant/10">
+<span class="material-symbols-outlined text-blue-700 text-base" data-icon="verified">verified</span>
+                        EU Blue Card Eligible
+                    </div>
+<div class="flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant/10">
+<span class="material-symbols-outlined text-blue-700 text-base" data-icon="bolt">bolt</span>
+                        Immediate Availability
+                    </div>
+</div>
+<div class="flex flex-wrap gap-4">
+<a class="blueprint-gradient text-on-primary px-8 py-4 rounded-lg font-bold shadow-lg hover:shadow-blue-200 transition-all flex items-center gap-2" href="projects.html">
+                        View Projects
+                        <span class="material-symbols-outlined text-lg" data-icon="arrow_forward">arrow_forward</span>
+</a>
+<a class="bg-surface-container-high text-on-surface px-8 py-4 rounded-lg font-bold hover:bg-surface-container-highest transition-colors" href="Shivam_Raghav_AI%20(1).pdf" download>
+                        Download CV
+                    </a>
+<a class="px-8 py-4 rounded-lg font-bold border-2 border-outline-variant/30 hover:border-blue-700/50 transition-colors" href="#contact">
+                        Contact Me
+                    </a>
+</div>
+</div>
+<div class="flex-1 w-full max-w-md">
+<div class="relative aspect-square bg-surface-container-low rounded-3xl overflow-hidden flex items-center justify-center p-6 border border-outline-variant/10 shadow-sm">
+<div class="absolute inset-0 opacity-10 blueprint-gradient"></div>
+<div class="bot-bg-dots"></div>
+<div class="relative w-full h-full flex flex-col">
+<div class="flex items-start justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="bot-avatar">
+<span class="material-symbols-outlined text-2xl text-blue-700" data-icon="smart_toy" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</div>
+<div>
+<p class="font-headline font-bold text-on-surface text-sm leading-tight">AI Assistant</p>
+<p class="text-on-surface-variant text-xs leading-tight">Agentic workflows, RAG, and LLMOps</p>
+</div>
+</div>
+<div class="bot-status">
+<span class="bot-status-dot" aria-hidden="true"></span>
+<span class="text-[10px] font-bold tracking-widest text-blue-700">ONLINE</span>
+</div>
+</div>
+
+<div class="mt-6 flex-1 flex items-end">
+<div class="w-full">
+<div class="bot-chat backdrop-blur-xl rounded-2xl p-4 border border-outline-variant/20">
+<div class="space-y-3">
+<div class="flex items-start gap-3">
+<div class="h-9 w-9 rounded-xl bg-white/60 border border-blue-700/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-blue-700 text-lg" data-icon="smart_toy">smart_toy</span>
+</div>
+<div class="chat-bubble chat-bubble--bot text-on-surface text-sm leading-relaxed">
+Hi! I build production-grade agentic AI systems.
+</div>
+</div>
+
+<div class="flex items-start gap-3">
+<div class="h-9 w-9 rounded-xl bg-white/60 border border-outline-variant/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-600 text-lg" data-icon="account_circle">account_circle</span>
+</div>
+<div class="chat-bubble chat-bubble--user text-on-surface-variant text-sm leading-relaxed">
+Show me your projects.
+</div>
+</div>
+
+<div class="flex items-start gap-3">
+<div class="h-9 w-9 rounded-xl bg-white/60 border border-blue-700/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-blue-700 text-lg" data-icon="hub">hub</span>
+</div>
+<div class="chat-bubble chat-bubble--bot text-on-surface text-sm leading-relaxed">
+<span id="botMessage"></span><span id="botTyping" class="typing-dots text-blue-700" aria-hidden="true"><span></span><span></span><span></span></span>
+</div>
+</div>
+</div>
+
+<div id="botActions" class="hidden mt-4 flex flex-wrap gap-2">
+<a class="blueprint-gradient text-white px-4 py-2 rounded-lg font-bold text-sm hover:opacity-90 transition-all inline-flex items-center gap-2" href="projects.html">
+View Projects
+<span class="material-symbols-outlined text-lg" data-icon="arrow_forward">arrow_forward</span>
+</a>
+<a class="bg-surface-container-high text-on-surface px-4 py-2 rounded-lg font-bold text-sm hover:bg-surface-container-highest transition-colors inline-flex items-center gap-2" href="mailto:shivam.raghav.779@gmail.com">
+Contact
+<span class="material-symbols-outlined text-lg" data-icon="mail">mail</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+
+<div class="mt-4">
+<div class="relative h-1 w-full rounded-full bg-outline-variant/15 overflow-hidden">
+<div class="absolute inset-y-0 w-1/3 bg-blue-700/40 rounded-full animate-[progressSweep_2.2s_ease-in-out_infinite]" aria-hidden="true"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- What I Do Section -->
+<section class="py-20">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+<div class="space-y-2">
+<span class="text-blue-700 font-label font-bold text-xs uppercase tracking-[0.15em]">Capabilities</span>
+<h2 class="font-headline text-3xl font-bold">What I Do</h2>
+</div>
+<div class="h-px bg-outline-variant/20 flex-1 mx-8 hidden md:block"></div>
+</div>
+<div class="grid md:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border-l-[3.5px] border-blue-700 transition-transform hover:-translate-y-1 duration-200">
+<span class="material-symbols-outlined text-blue-700 text-4xl mb-6 block" data-icon="psychology">psychology</span>
+<h3 class="font-headline text-xl font-bold mb-3">LLM Systems</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">
+                        Expertise in RAG, LangChain, and LangGraph to build intelligent, context-aware agents.
+                    </p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-high rounded-full text-[10px] font-bold uppercase tracking-wider">LangGraph</span>
+<span class="px-3 py-1 bg-surface-container-high rounded-full text-[10px] font-bold uppercase tracking-wider">VectorDB</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border-l-[3.5px] border-slate-200 hover:border-blue-700 transition-all duration-200">
+<span class="material-symbols-outlined text-blue-700 text-4xl mb-6 block" data-icon="settings_input_component">settings_input_component</span>
+<h3 class="font-headline text-xl font-bold mb-3">Backend Systems</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">
+                        High-performance FastAPI backends utilizing asynchronous processing and microservices architecture.
+                    </p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-high rounded-full text-[10px] font-bold uppercase tracking-wider">Python</span>
+<span class="px-3 py-1 bg-surface-container-high rounded-full text-[10px] font-bold uppercase tracking-wider">PostgreSQL</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border-l-[3.5px] border-slate-200 hover:border-blue-700 transition-all duration-200">
+<span class="material-symbols-outlined text-blue-700 text-4xl mb-6 block" data-icon="cloud_done">cloud_done</span>
+<h3 class="font-headline text-xl font-bold mb-3">Cloud Deployment</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">
+                        Scalable deployment on AWS using Docker, Kubernetes, and CI/CD for AI workloads.
+                    </p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-high rounded-full text-[10px] font-bold uppercase tracking-wider">AWS Lambda</span>
+<span class="px-3 py-1 bg-surface-container-high rounded-full text-[10px] font-bold uppercase tracking-wider">Terraform</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Projects Preview -->
+<section class="py-20">
+<div class="flex justify-between items-center mb-12">
+<div class="space-y-2">
+<span class="text-blue-700 font-label font-bold text-xs uppercase tracking-[0.15em]">Portfolio Highlights</span>
+<h2 class="font-headline text-3xl font-bold">Featured Projects</h2>
+</div>
+<a class="group flex items-center gap-2 text-blue-700 font-bold text-sm" href="projects.html">
+                    View All Projects
+                    <span class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1" data-icon="chevron_right">chevron_right</span>
+</a>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Project 1: FacialDx -->
+<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-outline-variant/5">
+<div class="h-64 overflow-hidden relative">
+<div class="absolute inset-0 project-network" style="--net-color:#2563eb">
+<svg viewBox="0 0 420 260" class="w-full h-full" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<g class="net-group">
+<path d="M40 170 C90 120, 135 120, 175 145 S265 210, 320 165 S380 90, 405 110" fill="none" stroke="currentColor" stroke-width="2" opacity="0.55"/>
+<path d="M22 120 C70 95, 125 85, 170 95 S245 145, 290 120 S355 65, 405 80" fill="none" stroke="currentColor" stroke-width="2" opacity="0.35"/>
+<path d="M60 80 C115 70, 150 90, 200 105 S285 150, 330 140 S385 130, 410 145" fill="none" stroke="currentColor" stroke-width="2" opacity="0.25"/>
+<circle cx="70" cy="95" r="6" fill="currentColor" class="net-dot" style="animation-delay:0s"/>
+<circle cx="120" cy="110" r="5" fill="currentColor" class="net-dot" style="animation-delay:0.18s"/>
+<circle cx="165" cy="145" r="6" fill="currentColor" class="net-dot" style="animation-delay:0.32s"/>
+<circle cx="215" cy="115" r="5" fill="currentColor" class="net-dot" style="animation-delay:0.47s"/>
+<circle cx="260" cy="155" r="6" fill="currentColor" class="net-dot" style="animation-delay:0.62s"/>
+<circle cx="310" cy="160" r="5" fill="currentColor" class="net-dot" style="animation-delay:0.78s"/>
+<circle cx="355" cy="120" r="6" fill="currentColor" class="net-dot" style="animation-delay:0.9s"/>
+<circle cx="395" cy="135" r="5" fill="currentColor" class="net-dot" style="animation-delay:1.04s"/>
+</g>
+</svg>
+</div>
+<div class="project-scanline"></div>
+<div class="absolute top-4 left-4 flex gap-2 items-center">
+<span class="bg-blue-700 text-white px-3 py-1 rounded text-[10px] font-bold tracking-widest uppercase">FacialDx</span>
+<span class="bg-white/70 text-blue-700 px-3 py-1 rounded text-[10px] font-bold tracking-widest uppercase border border-blue-700/15">Clinical Inference</span>
+</div>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<span class="text-7xl" aria-hidden="true">🩺</span>
+</div>
+</div>
+<div class="p-8 space-y-4">
+<h3 class="font-headline text-2xl font-bold">FacialDx — AI Clinical Inference</h3>
+<p class="text-on-surface-variant line-clamp-2">
+                            Stateless, horizontally scalable inference for PTSD, TBI, and depression detection with 50+ endpoints and concurrent GPU workflows.
+                        </p>
+<a class="inline-flex items-center gap-2 text-blue-700 font-bold border-b-2 border-transparent hover:border-blue-700 transition-all py-1" href="projects.html">
+                            View Details
+                            <span class="material-symbols-outlined text-sm" data-icon="open_in_new">open_in_new</span>
+</a>
+</div>
+</div>
+
+<!-- Project 2: CareerForce Pro -->
+<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-outline-variant/5">
+<div class="h-64 overflow-hidden relative">
+<div class="absolute inset-0 project-network" style="--net-color:#7c3aed">
+<svg viewBox="0 0 420 260" class="w-full h-full" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<g class="net-group">
+<path d="M40 190 C95 155, 130 120, 185 145 S280 245, 330 185 S390 95, 405 115" fill="none" stroke="currentColor" stroke-width="2" opacity="0.55"/>
+<path d="M22 120 C80 90, 120 95, 160 105 S260 145, 300 120 S355 65, 405 80" fill="none" stroke="currentColor" stroke-width="2" opacity="0.35"/>
+<circle cx="70" cy="95" r="6" fill="currentColor" class="net-dot" style="animation-delay:0s"/>
+<circle cx="120" cy="110" r="5" fill="currentColor" class="net-dot" style="animation-delay:0.18s"/>
+<circle cx="165" cy="145" r="6" fill="currentColor" class="net-dot" style="animation-delay:0.32s"/>
+<circle cx="215" cy="115" r="5" fill="currentColor" class="net-dot" style="animation-delay:0.47s"/>
+<circle cx="260" cy="155" r="6" fill="currentColor" class="net-dot" style="animation-delay:0.62s"/>
+<circle cx="310" cy="160" r="5" fill="currentColor" class="net-dot" style="animation-delay:0.78s"/>
+<circle cx="355" cy="120" r="6" fill="currentColor" class="net-dot" style="animation-delay:0.9s"/>
+<circle cx="395" cy="135" r="5" fill="currentColor" class="net-dot" style="animation-delay:1.04s"/>
+</g>
+</svg>
+</div>
+<div class="project-scanline"></div>
+<div class="absolute top-4 left-4 flex gap-2 items-center">
+<span class="bg-purple-700 text-white px-3 py-1 rounded text-[10px] font-bold tracking-widest uppercase">CareerForce Pro</span>
+<span class="bg-white/70 text-purple-800 px-3 py-1 rounded text-[10px] font-bold tracking-widest uppercase border border-purple-700/15">Hiring Automation</span>
+</div>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<span class="text-7xl" aria-hidden="true">💼</span>
+</div>
+</div>
+<div class="p-8 space-y-4">
+<h3 class="font-headline text-2xl font-bold">CareerForce Pro — AI Hiring Platform</h3>
+<p class="text-on-surface-variant line-clamp-2">
+                            End-to-end GenAI automation for JD generation, CV screening, and voicebot-led interview analysis—reducing recruiter workload by 80%.
+                        </p>
+<a class="inline-flex items-center gap-2 text-blue-700 font-bold border-b-2 border-transparent hover:border-blue-700 transition-all py-1" href="projects.html">
+                            View Details
+                            <span class="material-symbols-outlined text-sm" data-icon="open_in_new">open_in_new</span>
+</a>
+</div>
+</div>
+
+<!-- Project 3: Agentic Financial Intelligence Platform -->
+<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-outline-variant/5">
+<div class="h-64 overflow-hidden relative">
+<div class="absolute inset-0 project-network" style="--net-color:#16a34a">
+<svg viewBox="0 0 420 260" class="w-full h-full" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<g class="net-group">
+<path d="M40 190 C90 120, 140 160, 190 115 S290 95, 340 130 S395 185, 405 205" fill="none" stroke="currentColor" stroke-width="2" opacity="0.55"/>
+<path d="M22 140 C70 110, 115 120, 160 125 S250 160, 290 135 S355 95, 405 115" fill="none" stroke="currentColor" stroke-width="2" opacity="0.35"/>
+<circle cx="70" cy="95" r="6" fill="currentColor" class="net-dot" style="animation-delay:0s"/>
+<circle cx="120" cy="110" r="5" fill="currentColor" class="net-dot" style="animation-delay:0.18s"/>
+<circle cx="165" cy="145" r="6" fill="currentColor" class="net-dot" style="animation-delay:0.32s"/>
+<circle cx="215" cy="115" r="5" fill="currentColor" class="net-dot" style="animation-delay:0.47s"/>
+<circle cx="260" cy="155" r="6" fill="currentColor" class="net-dot" style="animation-delay:0.62s"/>
+<circle cx="310" cy="160" r="5" fill="currentColor" class="net-dot" style="animation-delay:0.78s"/>
+<circle cx="355" cy="120" r="6" fill="currentColor" class="net-dot" style="animation-delay:0.9s"/>
+<circle cx="395" cy="135" r="5" fill="currentColor" class="net-dot" style="animation-delay:1.04s"/>
+</g>
+</svg>
+</div>
+<div class="project-scanline"></div>
+<div class="absolute top-4 left-4 flex gap-2 items-center">
+<span class="bg-green-700 text-white px-3 py-1 rounded text-[10px] font-bold tracking-widest uppercase">Agentic Financial Intelligence</span>
+<span class="bg-white/70 text-green-800 px-3 py-1 rounded text-[10px] font-bold tracking-widest uppercase border border-green-700/15">Hybrid RAG</span>
+</div>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<span class="text-7xl" aria-hidden="true">📈</span>
+</div>
+</div>
+<div class="p-8 space-y-4">
+<h3 class="font-headline text-2xl font-bold">Agentic Financial Intelligence Platform</h3>
+<p class="text-on-surface-variant line-clamp-2">
+                            Dual-pipeline SaaS that uses LangGraph + Hybrid RAG to reconcile structured data with PDFs/reports for faster analyst decision support.
+                        </p>
+<a class="inline-flex items-center gap-2 text-blue-700 font-bold border-b-2 border-transparent hover:border-blue-700 transition-all py-1" href="projects.html">
+                            View Details
+                            <span class="material-symbols-outlined text-sm" data-icon="open_in_new">open_in_new</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Experience Snapshot -->
+<section class="py-20 bg-surface-container-low -mx-6 lg:-mx-0 lg:rounded-3xl px-8">
+<div class="max-w-3xl mx-auto space-y-12">
+<div class="text-center space-y-4">
+<span class="text-blue-700 font-label font-bold text-xs uppercase tracking-[0.15em]">Career Path</span>
+<h2 class="font-headline text-3xl font-bold">Experience Snapshot</h2>
+</div>
+<div class="space-y-8">
+<!-- Item 1 -->
+<div class="relative pl-10 border-l-2 border-outline-variant/20">
+<div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-blue-700 shadow-[0_0_0_4px_rgba(37,99,235,0.1)]"></div>
+<div class="flex justify-between items-start mb-2">
+<div>
+<h4 class="font-headline text-xl font-bold">Technical Lead — AI Automation</h4>
+<p class="text-blue-700 font-semibold text-sm">VigyanamAI LLP</p>
+</div>
+<span class="text-on-surface-variant text-xs font-bold font-label bg-surface-container-high px-3 py-1 rounded">Dec 2025 — Present</span>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                            Architected end-to-end agentic AI systems using LangGraph/LangChain, reducing manual operational effort by 60%+.
+                        </p>
+</div>
+<!-- Item 2 -->
+<div class="relative pl-10 border-l-2 border-outline-variant/20">
+<div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-surface-container-highest"></div>
+<div class="flex justify-between items-start mb-2">
+<div>
+<h4 class="font-headline text-xl font-bold">AI Engineer / Machine Learning Engineer</h4>
+<p class="text-blue-700 font-semibold text-sm">Netsmartz Infotech Pvt. Ltd.</p>
+</div>
+<span class="text-on-surface-variant text-xs font-bold font-label bg-surface-container-high px-3 py-1 rounded">Feb 2023 — Dec 2025</span>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                            Built PrivateGPT (enterprise RAG) and the AI Call Auditor, plus predictive ML pipelines for churn and sales forecasting.
+                        </p>
+</div>
+</div>
+<div class="text-center pt-4">
+<a class="bg-surface-container-highest text-on-surface px-8 py-3 rounded-lg font-bold hover:bg-outline-variant transition-colors inline-flex items-center gap-2" href="experience.html">
+                        View Full Experience History
+                        <span class="material-symbols-outlined text-lg" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Contact CTA -->
+<section class="py-32" id="contact">
+<div class="blueprint-gradient rounded-3xl p-12 md:p-20 text-center space-y-8 relative overflow-hidden">
+<!-- Background visual -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32"></div>
+<div class="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full -ml-32 -mb-32"></div>
+<h2 class="font-headline text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+                    Let's build something impactful together.
+                </h2>
+<p class="text-blue-100 text-lg max-w-xl mx-auto">
+                    Currently open to opportunities in Agentic AI and LLM Engineering across EU and Remote.
+                </p>
+<div class="pt-4">
+<a class="bg-white text-blue-700 px-10 py-5 rounded-xl font-extrabold text-lg shadow-2xl hover:scale-105 active:scale-95 transition-all inline-flex items-center gap-3" href="mailto:shivam.raghav.779@gmail.com">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+                        Contact Me
+                    </a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-50 dark:bg-slate-950 w-full py-12 border-t border-slate-200/10 mt-20">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 max-w-7xl mx-auto gap-4">
+<div class="text-lg font-bold text-slate-900 dark:text-slate-100 font-headline">
+                Shivam Raghav
+            </div>
+<div class="font-['Inter'] text-sm text-slate-500 dark:text-slate-400">
+                © 2024 Shivam Raghav. Built with Engineering Precision.
+            </div>
+<div class="flex gap-6">
+<a class="text-slate-500 hover:text-blue-600 transition-colors hover:underline decoration-blue-500 underline-offset-4" href="https://linkedin.com/in/shivam779" target="_blank" rel="noreferrer noopener">LinkedIn</a>
+<a class="text-slate-500 hover:text-blue-600 transition-colors hover:underline decoration-blue-500 underline-offset-4" href="https://github.com/shivamraghav779" target="_blank" rel="noreferrer noopener">GitHub</a>
+<a class="text-slate-500 hover:text-blue-600 transition-colors hover:underline decoration-blue-500 underline-offset-4" href="mailto:shivam.raghav.779@gmail.com">Email</a>
+</div>
+</div>
+</footer>
+
+<script>
+  (function () {
+    const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const message = "Want a quick tour? Scroll to see how I build agentic workflows with LangGraph, RAG, and production-grade FastAPI services.";
+
+    const el = document.getElementById('botMessage');
+    const typing = document.getElementById('botTyping');
+    const actions = document.getElementById('botActions');
+    if (!el || !typing || !actions) return;
+
+    if (prefersReduced) {
+      el.textContent = message;
+      typing.style.display = 'none';
+      actions.classList.remove('hidden');
+      return;
+    }
+
+    let i = 0;
+    const speedMs = 18;
+    const timer = window.setInterval(() => {
+      el.textContent += message.charAt(i);
+      i += 1;
+      if (i >= message.length) {
+        window.clearInterval(timer);
+        typing.style.display = 'none';
+        actions.classList.remove('hidden');
+      }
+    }, speedMs);
+  })();
+</script>
+</body></html>

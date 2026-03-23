@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-primary": "#b4c5ff",
+              "tertiary-fixed-dim": "#ffb596",
+              "surface": "#f7f9fb",
+              "on-tertiary-fixed": "#360f00",
+              "secondary-fixed-dim": "#b4c5ff",
+              "on-primary-fixed-variant": "#003ea8",
+              "secondary-container": "#acbfff",
+              "on-error": "#ffffff",
+              "surface-container-highest": "#e0e3e5",
+              "outline-variant": "#c3c6d7",
+              "primary-container": "#2563eb",
+              "error": "#ba1a1a",
+              "on-primary": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "surface-container-low": "#f2f4f6",
+              "secondary": "#495c95",
+              "on-secondary-container": "#394c84",
+              "error-container": "#ffdad6",
+              "on-tertiary-fixed-variant": "#7d2d00",
+              "background": "#f7f9fb",
+              "outline": "#737686",
+              "on-secondary-fixed": "#00174b",
+              "on-secondary-fixed-variant": "#31447b",
+              "on-error-container": "#93000a",
+              "inverse-on-surface": "#eff1f3",
+              "on-primary-fixed": "#00174b",
+              "on-surface-variant": "#434655",
+              "on-background": "#191c1e",
+              "surface-container": "#eceef0",
+              "primary-fixed": "#dbe1ff",
+              "tertiary-fixed": "#ffdbcd",
+              "on-tertiary-container": "#ffede6",
+              "surface-tint": "#0053db",
+              "tertiary": "#943700",
+              "surface-variant": "#e0e3e5",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-high": "#e6e8ea",
+              "inverse-surface": "#2d3133",
+              "tertiary-container": "#bc4800",
+              "primary-fixed-dim": "#b4c5ff",
+              "surface-dim": "#d8dadc",
+              "secondary-fixed": "#dbe1ff",
+              "on-surface": "#191c1e",
+              "primary": "#004ac6",
+              "on-primary-container": "#eeefff",
+              "surface-bright": "#f7f9fb",
+              "on-secondary": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .tonal-shift { background-color: #f2f4f6; }
+        .blueprint-grid {
+            background-image: radial-gradient(circle, #e0e3e5 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+
+        @keyframes netFloat {
+            0%, 100% { transform: translate3d(0px, 0px, 0); }
+            50% { transform: translate3d(0px, 8px, 0); }
+        }
+        @keyframes dotPulse {
+            0%, 100% { transform: scale(1); opacity: 0.65; }
+            50% { transform: scale(1.25); opacity: 1; }
+        }
+        @keyframes scanLineMove {
+            0% { transform: translateY(-120%); opacity: 0; }
+            15% { opacity: 0.55; }
+            100% { transform: translateY(120%); opacity: 0; }
+        }
+        @keyframes voicePulse {
+            0%, 100% { transform: scaleY(0.25); opacity: 0.55; }
+            50% { transform: scaleY(1); opacity: 1; }
+        }
+
+        .project-network { color: var(--net-color, #2563eb); }
+        .project-network .net-group { animation: netFloat 4.4s ease-in-out infinite; }
+        .project-network .net-dot { animation: dotPulse 2s ease-in-out infinite; }
+
+        .project-scanline {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: linear-gradient(
+                to bottom,
+                transparent 0%,
+                rgba(255, 255, 255, 0.40) 45%,
+                rgba(255, 255, 255, 0.08) 55%,
+                transparent 100%
+            );
+            transform: translateY(-120%);
+            animation: scanLineMove 2.4s linear infinite;
+        }
+
+        .voice-bar {
+            width: 10px;
+            border-radius: 9999px;
+            background: currentColor;
+            transform-origin: bottom;
+            animation: voicePulse 1.2s ease-in-out infinite;
+            opacity: 0.85;
+        }
+        .voice-bar:nth-child(2) { animation-delay: 0.08s; }
+        .voice-bar:nth-child(3) { animation-delay: 0.16s; }
+        .voice-bar:nth-child(4) { animation-delay: 0.24s; }
+        .voice-bar:nth-child(5) { animation-delay: 0.32s; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .project-network .net-group, .project-network .net-dot, .project-scanline, .voice-bar {
+                animation: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl shadow-[0_12px_32px_-8px_rgba(25,28,30,0.04)]">
+<div class="flex justify-between items-center h-16 px-8 max-w-7xl mx-auto">
+<span class="text-xl font-bold tracking-tighter text-slate-900 font-headline">Shivam Raghav</span>
+<div class="hidden md:flex items-center gap-8 font-headline font-semibold tracking-tight">
+<a class="text-slate-600 hover:text-slate-900 transition-colors" href="index.html">Home</a>
+<a class="text-blue-700 border-b-2 border-blue-700 pb-1" href="projects.html">Projects</a>
+<a class="text-slate-600 hover:text-slate-900 transition-colors" href="experience.html">Experience</a>
+<a class="text-slate-600 hover:text-slate-900 transition-colors" href="skills.html">Skills</a>
+<a class="text-slate-600 hover:text-slate-900 transition-colors" href="index.html#contact">Contact</a>
+</div>
+<a class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-5 py-2 rounded font-bold text-sm tracking-tight hover:opacity-90 transition-all active:scale-95" href="Shivam_Raghav_AI%20(1).pdf" download>
+                Download CV
+            </a>
+</div>
+</nav>
+<main class="pt-32 pb-24 px-8 max-w-[1100px] mx-auto">
+<!-- Header Section -->
+<header class="mb-20">
+<div class="inline-block px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-[0.7rem] font-bold uppercase tracking-wider mb-4 font-label">
+                Engineering Portfolio
+            </div>
+<h1 class="text-6xl md:text-7xl font-headline font-extrabold tracking-tighter text-on-surface mb-6">
+                Projects
+            </h1>
+<p class="text-xl text-on-surface-variant max-w-2xl leading-relaxed">
+                A selection of production-grade systems, AI inference platforms, and agentic tools built with architectural rigor and high-performance engineering.
+            </p>
+</header>
+<!-- Vertical Project Stack -->
+<div class="space-y-32">
+<!-- Project 1: FacialDx -->
+<article class="relative group flex flex-col md:flex-row gap-12 items-start">
+<div class="absolute -left-4 top-0 w-1.5 h-full bg-primary hidden md:block"></div>
+<div class="flex-1 space-y-6">
+<div class="flex items-center gap-3">
+<span class="text-3xl">🧠</span>
+<h2 class="text-4xl font-headline font-bold tracking-tight">FacialDx — AI Clinical Inference System</h2>
+</div>
+<div class="flex flex-wrap gap-2 font-label">
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium">FastAPI</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium">YOLO</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium">EfficientNet</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium">Claude Vision</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium">AWS</span>
+</div>
+<p class="text-lg text-on-surface-variant leading-relaxed">
+                        Stateless, horizontally scalable AI inference for PTSD, TBI, and depression detection—built for reliability, concurrency, and fast screening throughput.
+                    </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 bg-surface-container-low p-6 rounded-lg">
+<div class="space-y-1">
+<span class="text-[0.65rem] font-bold uppercase tracking-widest text-primary/70 block">Performance</span>
+<p class="text-sm font-semibold">50+ endpoints with concurrent inference via <span class="font-bold">asyncio.gather</span> (YOLO + EfficientNet + Claude Vision)</p>
+</div>
+<div class="space-y-1">
+<span class="text-[0.65rem] font-bold uppercase tracking-widest text-primary/70 block">Infrastructure</span>
+<p class="text-sm font-semibold">GPU inference on AWS (Uvicorn multi-worker) + Prometheus monitoring</p>
+</div>
+<div class="sm:col-span-2 space-y-1">
+<span class="text-[0.65rem] font-bold uppercase tracking-widest text-primary/70 block">Outcome</span>
+<p class="text-sm font-semibold">Production-grade auth/rate limiting + async PostgreSQL (SQLAlchemy + asyncpg) for real-time clinical inference.</p>
+</div>
+</div>
+<div class="hidden">
+<div class="inline-flex items-center gap-2 text-primary text-sm font-semibold bg-primary/5 border border-primary/10 px-4 py-2 rounded-lg">
+<span class="material-symbols-outlined text-base">description</span>
+                            Short project document available on request
+                        </div>
+</div>
+</div>
+<div class="w-full md:w-[380px] aspect-square bg-surface-container rounded-xl overflow-hidden relative shadow-sm">
+<div class="absolute inset-0 project-network" style="--net-color:#2563eb">
+<svg viewBox="0 0 420 260" class="w-full h-full" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<g class="net-group">
+<path d="M40 170 C90 120, 135 120, 175 145 S265 210, 320 165 S380 90, 405 110" fill="none" stroke="currentColor" stroke-width="2" opacity="0.55"/>
+<path d="M22 120 C70 95, 125 85, 170 95 S245 145, 290 120 S355 65, 405 80" fill="none" stroke="currentColor" stroke-width="2" opacity="0.35"/>
+<path d="M60 80 C115 70, 150 90, 200 105 S285 150, 330 140 S385 130, 410 145" fill="none" stroke="currentColor" stroke-width="2" opacity="0.25"/>
+<circle cx="70" cy="95" r="6" fill="currentColor" class="net-dot" style="animation-delay:0s"/>
+<circle cx="120" cy="110" r="5" fill="currentColor" class="net-dot" style="animation-delay:0.18s"/>
+<circle cx="165" cy="145" r="6" fill="currentColor" class="net-dot" style="animation-delay:0.32s"/>
+<circle cx="215" cy="115" r="5" fill="currentColor" class="net-dot" style="animation-delay:0.47s"/>
+<circle cx="260" cy="155" r="6" fill="currentColor" class="net-dot" style="animation-delay:0.62s"/>
+<circle cx="310" cy="160" r="5" fill="currentColor" class="net-dot" style="animation-delay:0.78s"/>
+<circle cx="355" cy="120" r="6" fill="currentColor" class="net-dot" style="animation-delay:0.9s"/>
+<circle cx="395" cy="135" r="5" fill="currentColor" class="net-dot" style="animation-delay:1.04s"/>
+</g>
+</svg>
+</div>
+<div class="project-scanline"></div>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<span class="text-7xl" aria-hidden="true">🩺</span>
+</div>
+<div class="absolute top-4 right-4 px-3 py-1 bg-primary text-on-primary text-[10px] font-bold tracking-widest uppercase rounded">
+                        FacialDx
+                    </div>
+</div>
+</article>
+<!-- Project 2: CareerForce Pro -->
+<article class="relative group flex flex-col md:flex-row-reverse gap-12 items-start">
+<div class="absolute -right-4 top-0 w-1.5 h-full bg-primary hidden md:block"></div>
+<div class="flex-1 space-y-6">
+<div class="flex items-center gap-3">
+<span class="text-3xl">💼</span>
+<h2 class="text-4xl font-headline font-bold tracking-tight">CareerForce Pro</h2>
+</div>
+<div class="flex flex-wrap gap-2 font-label">
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium">Python</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium">FastAPI</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium">VoiceBots</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium">IBM Watson</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium">n8n</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium">Slack Webhooks</span>
+</div>
+<p class="text-lg text-on-surface-variant leading-relaxed">
+                        An end-to-end GenAI platform that automates JD generation, CV screening, and voicebot-led interview analysis—built to reduce recruiter workload by 80%.
+                    </p>
+<div class="bg-surface-container-low p-6 rounded-lg border-l-4 border-primary">
+<div class="flex items-center gap-4">
+<div class="text-4xl font-headline font-extrabold text-primary">80%</div>
+<div>
+<p class="text-sm font-bold uppercase tracking-wide text-on-surface">Manual Work Reduction</p>
+<p class="text-xs text-on-surface-variant">Achieved via n8n orchestration + Slack Webhook notifications.</p>
+</div>
+</div>
+</div>
+<div class="hidden">
+<a class="flex items-center gap-2 text-primary font-bold text-sm hover:underline underline-offset-4" href="#">
+<span class="material-symbols-outlined text-lg">visibility</span> View Case Study
+                        </a>
+</div>
+</div>
+<div class="w-full md:w-[380px] aspect-video bg-surface-container-high rounded-xl overflow-hidden relative">
+<div class="absolute inset-0 project-network" style="--net-color:#7c3aed">
+<svg viewBox="0 0 420 260" class="w-full h-full" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<g class="net-group">
+<path d="M40 190 C95 155, 130 120, 185 145 S280 245, 330 185 S390 95, 405 115" fill="none" stroke="currentColor" stroke-width="2" opacity="0.55"/>
+<path d="M22 120 C80 90, 120 95, 160 105 S260 145, 300 120 S355 65, 405 80" fill="none" stroke="currentColor" stroke-width="2" opacity="0.35"/>
+<circle cx="70" cy="95" r="6" fill="currentColor" class="net-dot" style="animation-delay:0s"/>
+<circle cx="120" cy="110" r="5" fill="currentColor" class="net-dot" style="animation-delay:0.18s"/>
+<circle cx="165" cy="145" r="6" fill="currentColor" class="net-dot" style="animation-delay:0.32s"/>
+<circle cx="215" cy="115" r="5" fill="currentColor" class="net-dot" style="animation-delay:0.47s"/>
+<circle cx="260" cy="155" r="6" fill="currentColor" class="net-dot" style="animation-delay:0.62s"/>
+<circle cx="310" cy="160" r="5" fill="currentColor" class="net-dot" style="animation-delay:0.78s"/>
+<circle cx="355" cy="120" r="6" fill="currentColor" class="net-dot" style="animation-delay:0.9s"/>
+<circle cx="395" cy="135" r="5" fill="currentColor" class="net-dot" style="animation-delay:1.04s"/>
+</g>
+</svg>
+</div>
+<div class="project-scanline"></div>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none" style="color:#7c3aed">
+<div class="flex items-end gap-1">
+<span class="voice-bar" style="height:40px; animation-delay:0s;"></span>
+<span class="voice-bar" style="height:26px;"></span>
+<span class="voice-bar" style="height:54px;"></span>
+<span class="voice-bar" style="height:34px;"></span>
+<span class="voice-bar" style="height:46px;"></span>
+</div>
+</div>
+<div class="absolute top-4 left-4 px-3 py-1 bg-primary text-on-primary text-[10px] font-bold tracking-widest uppercase rounded">
+                        CareerForce Pro
+                    </div>
+</div>
+</article>
+<!-- Project 3: Agentic Financial Platform -->
+<article class="relative group flex flex-col md:flex-row gap-12 items-start">
+<div class="absolute -left-4 top-0 w-1.5 h-full bg-primary hidden md:block"></div>
+<div class="flex-1 space-y-6">
+<div class="flex items-center gap-3">
+<span class="text-3xl">📈</span>
+<h2 class="text-4xl font-headline font-bold tracking-tight">Agentic Financial Intelligence Platform</h2>
+</div>
+<div class="flex flex-wrap gap-2 font-label">
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium">LangGraph</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium">LangChain</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium">Hybrid RAG</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium">FastAPI</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium">AWS</span>
+</div>
+<p class="text-lg text-on-surface-variant leading-relaxed">
+                        A dual-pipeline SaaS that uses LangGraph for autonomous tool-calling and decision-making across hybrid financial datasets (structured SQL + unstructured PDF/reports).
+                    </p>
+<div class="grid grid-cols-1 gap-4">
+<div class="flex items-start gap-4 p-4 bg-surface-container-lowest border border-outline-variant/20 rounded">
+<span class="material-symbols-outlined text-primary">hub</span>
+<div>
+<h4 class="text-sm font-bold">Stateful Orchestration</h4>
+<p class="text-xs text-on-surface-variant mt-1">LangGraph-based agent cycles for memory + autonomous reasoning across tools and sources.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 bg-surface-container-lowest border border-outline-variant/20 rounded">
+<span class="material-symbols-outlined text-primary">search</span>
+<div>
+<h4 class="text-sm font-bold">Hybrid RAG</h4>
+<p class="text-xs text-on-surface-variant mt-1">Vector search + structured query pipelines to synthesize answers from mixed data types.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 bg-surface-container-lowest border border-outline-variant/20 rounded">
+<span class="material-symbols-outlined text-primary">speed</span>
+<div>
+<h4 class="text-sm font-bold">Analyst Acceleration</h4>
+<p class="text-xs text-on-surface-variant mt-1">Reduced query time and eliminated manual cross-source reconciliation.</p>
+</div>
+</div>
+</div>
+<div class="hidden">
+<a class="flex items-center gap-2 text-primary font-bold text-sm hover:underline underline-offset-4" href="#">
+<span class="material-symbols-outlined text-lg">dataset</span> Documentation
+                        </a>
+</div>
+</div>
+<div class="w-full md:w-[380px] h-[300px] bg-slate-900 rounded-xl overflow-hidden blueprint-grid relative">
+<div class="absolute inset-0 project-network" style="--net-color:#22c55e">
+<svg viewBox="0 0 420 260" class="w-full h-full" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<g class="net-group">
+<path d="M40 190 C90 120, 140 160, 190 115 S290 95, 340 130 S395 185, 405 205" fill="none" stroke="currentColor" stroke-width="2" opacity="0.55"/>
+<path d="M22 140 C70 110, 115 120, 160 125 S250 160, 290 135 S355 95, 405 115" fill="none" stroke="currentColor" stroke-width="2" opacity="0.35"/>
+<circle cx="70" cy="95" r="6" fill="currentColor" class="net-dot" style="animation-delay:0s"/>
+<circle cx="120" cy="110" r="5" fill="currentColor" class="net-dot" style="animation-delay:0.18s"/>
+<circle cx="165" cy="145" r="6" fill="currentColor" class="net-dot" style="animation-delay:0.32s"/>
+<circle cx="215" cy="115" r="5" fill="currentColor" class="net-dot" style="animation-delay:0.47s"/>
+<circle cx="260" cy="155" r="6" fill="currentColor" class="net-dot" style="animation-delay:0.62s"/>
+<circle cx="310" cy="160" r="5" fill="currentColor" class="net-dot" style="animation-delay:0.78s"/>
+<circle cx="355" cy="120" r="6" fill="currentColor" class="net-dot" style="animation-delay:0.9s"/>
+<circle cx="395" cy="135" r="5" fill="currentColor" class="net-dot" style="animation-delay:1.04s"/>
+</g>
+</svg>
+</div>
+<div class="project-scanline"></div>
+<div class="absolute top-4 right-4 px-3 py-1 bg-emerald-600/90 text-white text-[10px] font-bold tracking-widest uppercase rounded">
+                        Agentic Financial Intelligence
+                    </div>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none text-white/80">
+<span class="text-7xl" aria-hidden="true">📈</span>
+</div>
+<div class="absolute bottom-4 left-4 right-4 px-4 py-3 rounded-xl bg-black/30 backdrop-blur">
+<div class="p-0 font-mono text-[10px] text-emerald-300/70 leading-tight">
+                        &gt; Graph Orchestration: READY<br/>
+                        &gt; Hybrid Retrieval: ACTIVE<br/>
+                        &gt; Tool Calling: Online<br/>
+                        &gt; _
+                    </div>
+</div>
+</div>
+</article>
+
+<!-- Additional Projects -->
+<article class="relative group flex flex-col md:flex-row gap-12 items-start">
+<div class="absolute -right-4 top-0 w-1.5 h-full bg-primary hidden md:block"></div>
+<div class="flex-1 space-y-6">
+<div class="flex items-center gap-3">
+<span class="text-3xl">🗂️</span>
+<h2 class="text-4xl font-headline font-bold tracking-tight">Agentic Chatbot - Enterprise Knowledge Assistant</h2>
+</div>
+<div class="flex flex-wrap gap-2 font-label">
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium">Python</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium">LangChain</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium">OpenAI API</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium">FastAPI</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium">Vector DB</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium">RAG</span>
+</div>
+<p class="text-lg text-on-surface-variant leading-relaxed">
+                        Secure conversational AI agent enabling enterprise teams to query internal documents via LLMs. Built document ingestion pipelines, RAG with vector search, and a REST API-based conversational interface, designed for enterprise data privacy compliance.
+                    </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 bg-surface-container-low p-6 rounded-lg">
+<div class="space-y-1">
+<span class="text-[0.65rem] font-bold uppercase tracking-widest text-primary/70 block">Core</span>
+<p class="text-sm font-semibold">Document ingestion + RAG retrieval pipeline for enterprise knowledge</p>
+</div>
+<div class="space-y-1">
+<span class="text-[0.65rem] font-bold uppercase tracking-widest text-primary/70 block">Delivery</span>
+<p class="text-sm font-semibold">REST API conversational interface with secure internal data access</p>
+</div>
+<div class="sm:col-span-2 space-y-1">
+<span class="text-[0.65rem] font-bold uppercase tracking-widest text-primary/70 block">Outcome</span>
+<p class="text-sm font-semibold">Enterprise-ready knowledge assistant with privacy-oriented architecture</p>
+</div>
+</div>
+<div class="hidden">
+<a class="flex items-center gap-2 text-primary font-bold text-sm hover:underline underline-offset-4" href="#">
+<span class="material-symbols-outlined text-lg">code</span> Source Code
+                        </a>
+<a class="flex items-center gap-2 text-primary font-bold text-sm hover:underline underline-offset-4" href="#">
+<span class="material-symbols-outlined text-lg">account_tree</span> Architecture
+                        </a>
+</div>
+</div>
+<div class="w-full md:w-[380px] aspect-square bg-surface-container rounded-xl overflow-hidden relative shadow-sm">
+<div class="absolute inset-0 project-network" style="--net-color:#2563eb"></div>
+<div class="project-scanline"></div>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<span class="text-7xl" aria-hidden="true">🤖</span>
+</div>
+<div class="absolute top-4 right-4 px-3 py-1 bg-primary text-on-primary text-[10px] font-bold tracking-widest uppercase rounded">
+                        Agentic Chatbot
+                    </div>
+</div>
+</article>
+
+<article class="relative group flex flex-col md:flex-row-reverse gap-12 items-start">
+<div class="absolute -left-4 top-0 w-1.5 h-full bg-primary hidden md:block"></div>
+<div class="flex-1 space-y-6">
+<div class="flex items-center gap-3">
+<span class="text-3xl">🎙️</span>
+<h2 class="text-4xl font-headline font-bold tracking-tight">AI Call Auditing &amp; Scoring Automation Agent</h2>
+</div>
+<div class="flex flex-wrap gap-2 font-label">
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium">Python</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium">Speech-to-Text APIs</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium">Transformers</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium">NLP</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium">Automation Pipeline</span>
+</div>
+<p class="text-lg text-on-surface-variant leading-relaxed">
+                        Autonomous agent pipeline ingesting customer service calls at scale, transcribing via STT APIs, scoring with NLP models, and delivering structured quality reports - eliminating manual QA effort.
+                    </p>
+<div class="bg-surface-container-low p-6 rounded-lg border-l-4 border-primary">
+<div class="flex items-center gap-4">
+<div class="text-4xl font-headline font-extrabold text-primary">QA</div>
+<div>
+<p class="text-sm font-bold uppercase tracking-wide text-on-surface">Quality Automation</p>
+<p class="text-xs text-on-surface-variant">Call ingestion -> STT -> NLP scoring -> structured quality reports</p>
+</div>
+</div>
+</div>
+<div class="hidden">
+<a class="flex items-center gap-2 text-primary font-bold text-sm hover:underline underline-offset-4" href="#">
+<span class="material-symbols-outlined text-lg">terminal</span> Pipeline
+                        </a>
+<a class="flex items-center gap-2 text-primary font-bold text-sm hover:underline underline-offset-4" href="#">
+<span class="material-symbols-outlined text-lg">visibility</span> Results
+                        </a>
+</div>
+</div>
+<div class="w-full md:w-[380px] aspect-video bg-surface-container-high rounded-xl overflow-hidden relative">
+<div class="absolute inset-0 project-network" style="--net-color:#7c3aed"></div>
+<div class="project-scanline"></div>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none" style="color:#7c3aed">
+<div class="flex items-end gap-1">
+<span class="voice-bar" style="height:48px; animation-delay:0s;"></span>
+<span class="voice-bar" style="height:26px;"></span>
+<span class="voice-bar" style="height:60px;"></span>
+<span class="voice-bar" style="height:34px;"></span>
+<span class="voice-bar" style="height:52px;"></span>
+</div>
+</div>
+<div class="absolute top-4 left-4 px-3 py-1 bg-primary text-on-primary text-[10px] font-bold tracking-widest uppercase rounded">
+                        AI Call Auditing Agent
+                    </div>
+</div>
+</article>
+
+<article class="relative group flex flex-col md:flex-row gap-12 items-start">
+<div class="absolute -right-4 top-0 w-1.5 h-full bg-primary hidden md:block"></div>
+<div class="flex-1 space-y-6">
+<div class="flex items-center gap-3">
+<span class="text-3xl">📊</span>
+<h2 class="text-4xl font-headline font-bold tracking-tight">Sales Forecasting &amp; Employee Churn Prediction</h2>
+</div>
+<div class="flex flex-wrap gap-2 font-label">
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium">XGBoost</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium">LightGBM</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium">ARIMA</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium">Scikit-learn</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium">Google Sheets API</span>
+</div>
+<p class="text-lg text-on-surface-variant leading-relaxed">
+                        Dual ML system combining time-series sales forecasting and employee attrition classification. Model outputs auto-pushed to Google Sheets API for live dashboards, enabling data-driven decisions without manual intervention.
+                    </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 bg-surface-container-low p-6 rounded-lg">
+<div class="space-y-1">
+<span class="text-[0.65rem] font-bold uppercase tracking-widest text-primary/70 block">Models</span>
+<p class="text-sm font-semibold">Employee churn classification with LightGBM + XGBoost</p>
+</div>
+<div class="space-y-1">
+<span class="text-[0.65rem] font-bold uppercase tracking-widest text-primary/70 block">Forecasting</span>
+<p class="text-sm font-semibold">Sales forecasting with ARIMA and automated updates</p>
+</div>
+<div class="sm:col-span-2 space-y-1">
+<span class="text-[0.65rem] font-bold uppercase tracking-widest text-primary/70 block">Outcome</span>
+<p class="text-sm font-semibold">Live Sheets dashboards for zero-manual reporting and decisions</p>
+</div>
+</div>
+</div>
+<div class="w-full md:w-[380px] aspect-square bg-surface-container rounded-xl overflow-hidden relative shadow-sm">
+<div class="absolute inset-0 project-network" style="--net-color:#16a34a"></div>
+<div class="project-scanline"></div>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<span class="text-7xl" aria-hidden="true">📈</span>
+</div>
+<div class="absolute top-4 right-4 px-3 py-1 bg-primary text-on-primary text-[10px] font-bold tracking-widest uppercase rounded">
+                        Forecasting & Churn
+                    </div>
+</div>
+</article>
+
+<article class="relative group flex flex-col md:flex-row-reverse gap-12 items-start">
+<div class="absolute -left-4 top-0 w-1.5 h-full bg-primary hidden md:block"></div>
+<div class="flex-1 space-y-6">
+<div class="flex items-center gap-3">
+<span class="text-3xl">🔗</span>
+<h2 class="text-4xl font-headline font-bold tracking-tight">Sales Agent Voicebot Platform (SaaS)</h2>
+</div>
+<div class="flex flex-wrap gap-2 font-label">
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium">VAPI</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium">Twilio</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium">Sheets API</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium">Email API</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium">Website Scraping</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium">Multi-Agent</span>
+</div>
+<p class="text-lg text-on-surface-variant leading-relaxed">
+                        SaaS-based sales voicebot platform for multiple organizations, with multi-agent support and workflow orchestration across tools. Integrated VAPI + Twilio calling with Sheets API, Email API, and website scraping for dynamic knowledge enrichment.
+                    </p>
+<div class="grid grid-cols-1 gap-4">
+<div class="flex items-start gap-4 p-4 bg-surface-container-lowest border border-outline-variant/20 rounded">
+<span class="material-symbols-outlined text-primary">integration_instructions</span>
+<div>
+<h4 class="text-sm font-bold">Multi-Tool Workflow Engine</h4>
+<p class="text-xs text-on-surface-variant mt-1">Connected VAPI/Twilio voice flows with Sheets + Email APIs</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 bg-surface-container-lowest border border-outline-variant/20 rounded">
+<span class="material-symbols-outlined text-primary">sync_alt</span>
+<div>
+<h4 class="text-sm font-bold">Knowledge Base Support</h4>
+<p class="text-xs text-on-surface-variant mt-1">KB from scraped sites + uploaded HTML/MD/PDF/TXT/DOC files</p>
+</div>
+</div>
+</div>
+<div class="hidden">
+<a class="flex items-center gap-2 text-primary font-bold text-sm hover:underline underline-offset-4" href="#">
+<span class="material-symbols-outlined text-lg">terminal</span> Voicebot Workflow
+                        </a>
+</div>
+</div>
+<div class="w-full md:w-[380px] h-[320px] bg-slate-900 rounded-xl overflow-hidden flex items-center justify-center blueprint-grid relative">
+<div class="absolute inset-0 project-network" style="--net-color:#f59e0b"></div>
+<div class="project-scanline"></div>
+<div class="absolute top-4 left-4 px-3 py-1 bg-amber-500/90 text-white text-[10px] font-bold tracking-widest uppercase rounded">
+                        Sales Agent Voicebot
+                    </div>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none text-white/80">
+<span class="text-7xl" aria-hidden="true">⚡</span>
+</div>
+</div>
+</article>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 border-t border-slate-200/10 tonal-shift bg-slate-50">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 max-w-7xl mx-auto gap-4">
+<span class="text-lg font-bold text-slate-900 font-headline">Shivam Raghav</span>
+<p class="font-['Inter'] text-sm text-slate-500 text-center">© 2024 Shivam Raghav. Built with Engineering Precision.</p>
+<div class="flex gap-6">
+<a class="text-slate-500 hover:text-blue-600 transition-colors hover:underline decoration-blue-500 underline-offset-4 text-sm font-medium" href="https://linkedin.com/in/shivam779" target="_blank" rel="noreferrer noopener">LinkedIn</a>
+<a class="text-slate-500 hover:text-blue-600 transition-colors hover:underline decoration-blue-500 underline-offset-4 text-sm font-medium" href="https://github.com/shivamraghav779" target="_blank" rel="noreferrer noopener">GitHub</a>
+<a class="text-slate-500 hover:text-blue-600 transition-colors hover:underline decoration-blue-500 underline-offset-4 text-sm font-medium" href="mailto:shivam.raghav.779@gmail.com">Email</a>
+</div>
+</div>
+</footer>
+
+<!-- Prevent placeholder links from changing hash/history -->
+<script>
+  document.querySelectorAll('a[href="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+    });
+  });
+</script>
+</body></html>
