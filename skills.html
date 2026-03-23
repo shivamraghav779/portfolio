@@ -4,10 +4,10 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Skills | Shivam Raghav</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries&amp;v=2"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap&amp;v=2" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap&amp;v=2" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap&amp;v=2" rel="stylesheet"/>
 <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
@@ -72,17 +72,7 @@
         },
       }
     </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-            vertical-align: middle;
-        }
-        .blueprint-grid {
-            background-image: radial-gradient(circle, #737686 0.5px, transparent 0.5px);
-            background-size: 24px 24px;
-            opacity: 0.05;
-        }
-    </style>
+<link href="assets/skills.css?v=3" rel="stylesheet"/>
 </head>
 <body class="bg-surface font-body text-on-surface antialiased">
 <!-- TopNavBar -->
@@ -118,169 +108,142 @@
 </header>
 <!-- Bento-Style Skills Grid -->
 <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
-<!-- AI & LLMs Section -->
-<section class="md:col-span-7 bg-surface-container-lowest rounded-xl p-8 border-l-[3px] border-primary shadow-[0_4px_24px_-12px_rgba(0,74,198,0.1)]">
+<!-- 1. Agentic AI & LLM Systems -->
+<section class="md:col-span-12 bg-surface-container-lowest rounded-xl p-8 border-l-[3px] border-primary shadow-[0_4px_24px_-12px_rgba(0,74,198,0.1)]">
 <div class="flex items-center gap-3 mb-6">
 <span class="material-symbols-outlined text-primary" data-icon="smart_toy">smart_toy</span>
-<h2 class="font-headline text-2xl font-bold tracking-tight">AI &amp; LLMs</h2>
+<h2 class="font-headline text-2xl font-bold tracking-tight">1. Agentic AI &amp; LLM Systems</h2>
 </div>
 <div class="flex flex-wrap gap-2">
 <span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">LangChain</span>
 <span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">LangGraph</span>
 <span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">AutoGen</span>
 <span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">CrewAI</span>
-<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">LlamaIndex</span>
-<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">OpenAI GPT-4o</span>
-<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">Anthropic Claude 3.5</span>
-<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">Llama 3</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">OpenAI (GPT-4o)</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">Claude</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">Llama</span>
 <span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">Mistral</span>
-</div>
-<div class="mt-8 pt-6 border-t border-outline-variant/10">
-<p class="text-xs font-label uppercase tracking-widest text-slate-400 font-bold mb-3">Focus Areas</p>
-<ul class="text-sm text-on-surface-variant space-y-2">
-<li class="flex items-center gap-2">
-<span class="w-1 h-1 rounded-full bg-primary"></span>
-                            Agentic Workflows &amp; Tool Use
-                        </li>
-<li class="flex items-center gap-2">
-<span class="w-1 h-1 rounded-full bg-primary"></span>
-                            RAG Pipeline Optimization
-                        </li>
-</ul>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">RAG Systems</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">Multi-Agent Orchestration</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">Tool Calling</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">Prompt Engineering</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">Structured Outputs</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">LLM Evaluation</span>
 </div>
 </section>
-<!-- Backend Section -->
-<section class="md:col-span-5 bg-surface-container-lowest rounded-xl p-8 shadow-[0_4px_24px_-12px_rgba(0,0,0,0.05)]">
+
+<!-- 2. LLM Fine-Tuning & Optimization -->
+<section class="md:col-span-6 bg-surface-container-lowest rounded-xl p-8 shadow-[0_4px_24px_-12px_rgba(0,0,0,0.05)]">
 <div class="flex items-center gap-3 mb-6">
-<span class="material-symbols-outlined text-primary" data-icon="settings_input_component">settings_input_component</span>
-<h2 class="font-headline text-2xl font-bold tracking-tight">Backend</h2>
+<span class="material-symbols-outlined text-primary" data-icon="tune">tune</span>
+<h2 class="font-headline text-2xl font-bold tracking-tight">2. LLM Fine-Tuning &amp; Optimization</h2>
 </div>
-<div class="grid grid-cols-2 gap-3">
-<div class="p-3 rounded-lg bg-surface-container-low">
-<p class="text-on-surface font-semibold text-sm">Python</p>
-</div>
-<div class="p-3 rounded-lg bg-surface-container-low">
-<p class="text-on-surface font-semibold text-sm">FastAPI</p>
-</div>
-<div class="p-3 rounded-lg bg-surface-container-low">
-<p class="text-on-surface font-semibold text-sm">REST APIs</p>
-</div>
-<div class="p-3 rounded-lg bg-surface-container-low">
-<p class="text-on-surface font-semibold text-sm">Asyncio</p>
-</div>
-<div class="p-3 rounded-lg bg-surface-container-low">
-<p class="text-on-surface font-semibold text-sm">PostgreSQL</p>
-</div>
-<div class="p-3 rounded-lg bg-surface-container-low">
-<p class="text-on-surface font-semibold text-sm">Microservices</p>
-</div>
-<div class="p-3 rounded-lg bg-surface-container-low">
-<p class="text-on-surface font-semibold text-sm">Docker</p>
-</div>
-<div class="p-3 rounded-lg bg-surface-container-low">
-<p class="text-on-surface font-semibold text-sm">CI/CD</p>
-</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">LoRA</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">QLoRA</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">PEFT</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">Hugging Face Transformers</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">Instruction Tuning</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">Dataset Preparation</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">Tokenization</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">Model Evaluation</span>
 </div>
 </section>
-<!-- Cloud Section -->
-<section class="md:col-span-4 bg-surface-container-lowest rounded-xl p-8 shadow-[0_4px_24px_-12px_rgba(0,0,0,0.05)]">
+
+<!-- 3. Production AI Systems & GPU Inference -->
+<section class="md:col-span-6 bg-surface-container-lowest rounded-xl p-8 shadow-[0_4px_24px_-12px_rgba(0,0,0,0.05)]">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="bolt">bolt</span>
+<h2 class="font-headline text-2xl font-bold tracking-tight">3. Production AI Systems &amp; GPU Inference</h2>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">FastAPI</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">Async Processing (asyncio)</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">GPU Inference</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">Multi-worker Deployment</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">Model Optimization</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">High-Concurrency Systems</span>
+</div>
+</section>
+
+<!-- 4. Computer Vision & Multimodal AI -->
+<section class="md:col-span-6 bg-surface-container-lowest rounded-xl p-8 shadow-[0_4px_24px_-12px_rgba(0,0,0,0.05)]">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="center_focus_strong">center_focus_strong</span>
+<h2 class="font-headline text-2xl font-bold tracking-tight">4. Computer Vision &amp; Multimodal AI</h2>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">YOLOv8</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">EfficientNet</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">OpenCV</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">Image Classification</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">Object Detection</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">Multimodal AI (Vision + LLMs)</span>
+</div>
+</section>
+
+<!-- 5. Cloud & Infrastructure -->
+<section class="md:col-span-6 bg-surface-container-lowest rounded-xl p-8 shadow-[0_4px_24px_-12px_rgba(0,0,0,0.05)]">
 <div class="flex items-center gap-3 mb-6">
 <span class="material-symbols-outlined text-primary" data-icon="cloud">cloud</span>
-<h2 class="font-headline text-2xl font-bold tracking-tight">Cloud</h2>
+<h2 class="font-headline text-2xl font-bold tracking-tight">5. Cloud &amp; Infrastructure</h2>
 </div>
-<div class="space-y-4">
-<div>
-<p class="text-xs font-label uppercase tracking-widest text-slate-400 font-bold mb-2">AWS Ecosystem</p>
 <div class="flex flex-wrap gap-2">
-<span class="px-3 py-1 rounded bg-primary/5 text-primary text-xs font-bold border border-primary/10">EC2</span>
-<span class="px-3 py-1 rounded bg-primary/5 text-primary text-xs font-bold border border-primary/10">S3</span>
-<span class="px-3 py-1 rounded bg-primary/5 text-primary text-xs font-bold border border-primary/10">ALB</span>
-<span class="px-3 py-1 rounded bg-primary/5 text-primary text-xs font-bold border border-primary/10">Aurora</span>
-<span class="px-3 py-1 rounded bg-primary/5 text-primary text-xs font-bold border border-primary/10">Secrets Manager</span>
-<span class="px-3 py-1 rounded bg-primary/5 text-primary text-xs font-bold border border-primary/10">GPU Inference</span>
-</div>
-</div>
-<div>
-<p class="text-xs font-label uppercase tracking-widest text-slate-400 font-bold mb-2">Infrastructure</p>
-<span class="px-3 py-1 rounded bg-surface-container-low text-on-surface-variant text-xs font-bold">Azure</span>
-</div>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">AWS (EC2, S3, ALB, Aurora, Secrets Manager)</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">Azure</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">IBM Watsonx</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">Docker</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">CI/CD</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">Microservices</span>
 </div>
 </section>
-<!-- Machine Learning Section -->
-<section class="md:col-span-8 bg-surface-container-lowest rounded-xl p-8 shadow-[0_4px_24px_-12px_rgba(0,0,0,0.05)]">
+
+<!-- 6. Automation & Integrations -->
+<section class="md:col-span-12 bg-surface-container-lowest rounded-xl p-8 shadow-[0_4px_24px_-12px_rgba(0,0,0,0.05)]">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="integration_instructions">integration_instructions</span>
+<h2 class="font-headline text-2xl font-bold tracking-tight">6. Automation &amp; Integrations</h2>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">n8n</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">Zapier</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">Make</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">Slack API</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">Notion API</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">Google Sheets API</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">HubSpot</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">Apify</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">REST APIs</span>
+</div>
+</section>
+
+<!-- 7. Machine Learning -->
+<section class="md:col-span-7 bg-surface-container-lowest rounded-xl p-8 shadow-[0_4px_24px_-12px_rgba(0,0,0,0.05)]">
 <div class="flex items-center gap-3 mb-6">
 <span class="material-symbols-outlined text-primary" data-icon="analytics">analytics</span>
-<h2 class="font-headline text-2xl font-bold tracking-tight">Machine Learning</h2>
+<h2 class="font-headline text-2xl font-bold tracking-tight">7. Machine Learning</h2>
 </div>
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-<div>
-<p class="text-sm font-semibold text-on-surface mb-3">Predictive Modeling</p>
 <div class="flex flex-wrap gap-2">
-<span class="px-4 py-2 rounded-lg bg-surface-container-high text-on-surface-variant font-medium text-sm">XGBoost</span>
-<span class="px-4 py-2 rounded-lg bg-surface-container-high text-on-surface-variant font-medium text-sm">LightGBM</span>
-<span class="px-4 py-2 rounded-lg bg-surface-container-high text-on-surface-variant font-medium text-sm">Scikit-learn</span>
-<span class="px-4 py-2 rounded-lg bg-surface-container-high text-on-surface-variant font-medium text-sm">ARIMA</span>
-</div>
-</div>
-<div>
-<p class="text-sm font-semibold text-on-surface mb-3">Deep Learning &amp; NLP</p>
-<div class="flex flex-wrap gap-2">
-<span class="px-4 py-2 rounded-lg bg-surface-container-high text-on-surface-variant font-medium text-sm">NLP</span>
-<span class="px-4 py-2 rounded-lg bg-surface-container-high text-on-surface-variant font-medium text-sm">Transformers</span>
-<span class="px-4 py-2 rounded-lg bg-surface-container-high text-on-surface-variant font-medium text-sm">Hugging Face</span>
-</div>
-</div>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">XGBoost</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">LightGBM</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">Scikit-learn</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">ARIMA</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">Feature Engineering</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">Model Evaluation</span>
 </div>
 </section>
-<!-- Tools Section -->
-<section class="md:col-span-12 bg-surface-container-lowest rounded-xl p-8 shadow-[0_4px_24px_-12px_rgba(0,0,0,0.05)]">
-<div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-primary" data-icon="integration_instructions">integration_instructions</span>
-<h2 class="font-headline text-2xl font-bold tracking-tight">Integrations &amp; Tools</h2>
+
+<!-- 8. Voice AI & Emerging Tools -->
+<section class="md:col-span-5 bg-surface-container-lowest rounded-xl p-8 shadow-[0_4px_24px_-12px_rgba(0,0,0,0.05)]">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="record_voice_over">record_voice_over</span>
+<h2 class="font-headline text-2xl font-bold tracking-tight">8. Voice AI &amp; Emerging Tools</h2>
 </div>
-<div class="flex flex-wrap gap-4">
-<div class="flex items-center gap-2 px-5 py-3 rounded-full bg-surface-container-low hover:bg-surface-container-high transition-colors cursor-default">
-<span class="material-symbols-outlined text-lg" data-icon="cable">cable</span>
-<span class="font-bold text-sm">n8n</span>
-</div>
-<div class="flex items-center gap-2 px-5 py-3 rounded-full bg-surface-container-low hover:bg-surface-container-high transition-colors cursor-default">
-<span class="material-symbols-outlined text-lg" data-icon="sync_alt">sync_alt</span>
-<span class="font-bold text-sm">Zapier</span>
-</div>
-<div class="flex items-center gap-2 px-5 py-3 rounded-full bg-surface-container-low hover:bg-surface-container-high transition-colors cursor-default">
-<span class="material-symbols-outlined text-lg" data-icon="forum">forum</span>
-<span class="font-bold text-sm">Slack API</span>
-</div>
-<div class="flex items-center gap-2 px-5 py-3 rounded-full bg-surface-container-low hover:bg-surface-container-high transition-colors cursor-default">
-<span class="material-symbols-outlined text-lg" data-icon="description">description</span>
-<span class="font-bold text-sm">Notion API</span>
-</div>
-<div class="flex items-center gap-2 px-5 py-3 rounded-full bg-surface-container-low hover:bg-surface-container-high transition-colors cursor-default">
-<span class="material-symbols-outlined text-lg" data-icon="sync_alt">sync_alt</span>
-<span class="font-bold text-sm">Make</span>
-</div>
-<div class="flex items-center gap-2 px-5 py-3 rounded-full bg-surface-container-low hover:bg-surface-container-high transition-colors cursor-default">
-<span class="material-symbols-outlined text-lg" data-icon="chat">chat</span>
-<span class="font-bold text-sm">Slack Webhooks</span>
-</div>
-<div class="flex items-center gap-2 px-5 py-3 rounded-full bg-surface-container-low hover:bg-surface-container-high transition-colors cursor-default">
-<span class="material-symbols-outlined text-lg" data-icon="table_chart">table_chart</span>
-<span class="font-bold text-sm">Google Sheets API</span>
-</div>
-<div class="flex items-center gap-2 px-5 py-3 rounded-full bg-surface-container-low hover:bg-surface-container-high transition-colors cursor-default">
-<span class="material-symbols-outlined text-lg" data-icon="account_tree">account_tree</span>
-<span class="font-bold text-sm">HubSpot</span>
-</div>
-<div class="flex items-center gap-2 px-5 py-3 rounded-full bg-surface-container-low hover:bg-surface-container-high transition-colors cursor-default">
-<span class="material-symbols-outlined text-lg" data-icon="link">link</span>
-<span class="font-bold text-sm">LinkedIn API</span>
-</div>
-<div class="flex items-center gap-2 px-5 py-3 rounded-full bg-surface-container-low hover:bg-surface-container-high transition-colors cursor-default">
-<span class="material-symbols-outlined text-lg" data-icon="movie">movie</span>
-<span class="font-bold text-sm">Apify</span>
-</div>
-</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">VAPI</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">Retell AI</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">Voice Bots</span>
+<span class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-medium text-sm">Conversational AI Systems</span>
 </div>
 </section>
 </div>
@@ -331,6 +294,8 @@
 <li>DevOps Training — Netsmartz Infotech</li>
 <li>Full Stack Java Developer — iNeuron</li>
 <li>MySQL Certification — Great Learning</li>
+<li><a class="text-blue-700 hover:underline break-all" href="https://www.udemy.com/certificate/UC-b966dc7e-1a88-4a25-9684-d514ff91fd8e/" target="_blank" rel="noreferrer noopener">Udemy — Machine Learning: Build neural networks in 77 lines of code</a></li>
+<li><a class="text-blue-700 hover:underline break-all" href="https://www.udemy.com/certificate/UC-4f49dd40-b286-47b3-b973-ea182604232d/" target="_blank" rel="noreferrer noopener">Udemy — Mastering System Design: From Basics to Cracking Interviews</a></li>
 </ul>
 </div>
 </div>

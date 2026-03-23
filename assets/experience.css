@@ -1,0 +1,8 @@
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+.blueprint-grid {
+  background-image: radial-gradient(circle, #c3c6d7 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity: 0.15;
+}
